@@ -11,7 +11,6 @@ export default function useScroll(parentRef: HTMLElement | undefined, childrenRe
 
     observer.current = new IntersectionObserver(([target]) => {
       if (target.isIntersecting) {
-        console.log("work")
         cb()
       }
     }, options)
@@ -19,7 +18,6 @@ export default function useScroll(parentRef: HTMLElement | undefined, childrenRe
     if (childrenRef) {
       observer.current.observe(childrenRef)
     }
-    console.log("in hook")
 
     return () => {
       if (childrenRef) {
